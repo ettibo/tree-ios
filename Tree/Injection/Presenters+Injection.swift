@@ -9,7 +9,8 @@ import Foundation
 import Resolver
 
 extension Resolver {
-   static func registerPresenters() {
+    static func registerPresenters() {
         register { TreeListPresenter() }.implements(TreeListPresenterProtocol.self)
+        register { TreeDetailsPresenter() }.implements(TreeDetailsPresenterProtocol.self)
     }
 }

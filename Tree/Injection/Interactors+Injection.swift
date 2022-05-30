@@ -9,7 +9,8 @@ import Foundation
 import Resolver
 
 extension Resolver {
-   static func registerInteractors() {
+    static func registerInteractors() {
         register { TreeListInteractor() }.implements(TreeListInteractorProtocol.self)
+        register { TreeDetailsInteractor() }.implements(TreeDetailsInteractorProtocol.self)
     }
 }

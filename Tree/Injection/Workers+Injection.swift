@@ -9,7 +9,8 @@ import Foundation
 import Resolver
 
 extension Resolver {
-   static func registerWorkers() {
+    static func registerWorkers() {
         register { TreeListWorker() }.implements(TreeListWorkerProtocol.self)
+        register { TreeDetailsWorker() }.implements(TreeDetailsWorkerProtocol.self)
     }
 }

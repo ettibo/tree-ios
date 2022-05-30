@@ -7,7 +7,11 @@
 
 import Foundation
 
-class TreeDetailsWorker {
+protocol TreeDetailsWorkerProtocol {
+    func fetchData(tree: Tree, completionHandler: ([String]) -> Void)
+}
+
+class TreeDetailsWorker: TreeDetailsWorkerProtocol {
     func fetchData(tree: Tree, completionHandler: ([String]) -> Void) {
         var items = [String]()
         if let item = tree.name {

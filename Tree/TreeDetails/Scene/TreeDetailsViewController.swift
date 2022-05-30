@@ -6,16 +6,21 @@
 //
 
 import UIKit
+import Resolver
 
-class TreeDetailsViewController: UIViewController {
+protocol TreeDetailsViewControllerProtocol {
+    func displayItems(viewHolder: TreeDetailsViewHolder)
+}
 
-    private let interactor = TreeDetailsInteractor()
+class TreeDetailsViewController: UIViewController, TreeDetailsViewControllerProtocol {
+    
+    @Injected private var interactor: TreeDetailsInteractorProtocol
     
     var request: Tree?
     
     var tableView: UITableView = UITableView()
     var viewHolder: TreeDetailsViewHolder?
-
+    
     // MARK: Lifecycle
     
     override func viewDidLoad() {

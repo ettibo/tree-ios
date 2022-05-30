@@ -6,10 +6,16 @@
 //
 
 import Foundation
+import Resolver
 
-class TreeDetailsInteractor {
-    let presenter = TreeDetailsPresenter()
-    private let worker = TreeDetailsWorker()
+protocol TreeDetailsInteractorProtocol {
+    var presenter: TreeDetailsPresenterProtocol { get set }
+    func processRequest(request: Tree)
+}
+
+class TreeDetailsInteractor: TreeDetailsInteractorProtocol {
+    @Injected var presenter: TreeDetailsPresenterProtocol
+    @Injected private var worker: TreeDetailsWorkerProtocol
     
     func processRequest(request: Tree) {
         let completionHandler: ([String]) -> Void = { [weak self] items in

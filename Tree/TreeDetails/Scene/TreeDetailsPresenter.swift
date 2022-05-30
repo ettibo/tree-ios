@@ -7,8 +7,13 @@
 
 import Foundation
 
-class TreeDetailsPresenter {
-    weak var viewController: TreeDetailsViewController?
+protocol TreeDetailsPresenterProtocol {
+    var viewController: TreeDetailsViewControllerProtocol? { get set }
+    func presentItems(items: [String])
+}
+
+class TreeDetailsPresenter: TreeDetailsPresenterProtocol {
+    var viewController: TreeDetailsViewControllerProtocol?
     
     func presentItems(items: [String]) {
         let viewHolder = TreeDetailsViewHolder(items: items)
