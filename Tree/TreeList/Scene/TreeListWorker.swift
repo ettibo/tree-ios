@@ -8,7 +8,11 @@
 import Foundation
 import Alamofire
 
-class TreeListWorker {
+protocol TreeListWorkerProtocol {
+    func fetchTrees(startIndex: Int, rows: Int, completionHandler: @escaping ([Tree]) -> Void)
+}
+
+class TreeListWorker: TreeListWorkerProtocol {
     
     private let baseUrl = "https://opendata.paris.fr/api/records/1.0/search/?dataset=les-arbres&q=&facet=typeemplacement&facet=domanialite&facet=arrondissement&facet=libellefrancais&facet=genre&facet=espece&facet=varieteoucultivar&facet=circonferenceencm&facet=hauteurenm&facet=stadedeveloppement&facet=remarquable"
     

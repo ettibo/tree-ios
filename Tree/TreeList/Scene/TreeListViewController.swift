@@ -6,11 +6,18 @@
 //
 
 import UIKit
+import Resolver
 
-class TreeListViewController: UIViewController {
-    
-    private let interactor = TreeListInteractor()
-    let router = TreeListRouter()
+protocol TreeListViewControllerProtocol {
+    var router: TreeListRouterProtocol { get }
+    func displayTreeList(viewHolder: TreeListViewHolder)
+    func displayLoader()
+    func hideLoader()
+}
+
+class TreeListViewController: UIViewController, TreeListViewControllerProtocol {
+    @Injected private var interactor: TreeListInteractorProtocol
+    @Injected var router: TreeListRouterProtocol
     
     var tableView: UITableView = UITableView()
     var viewHolder: TreeListViewHolder?

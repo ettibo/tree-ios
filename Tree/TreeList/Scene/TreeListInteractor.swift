@@ -6,10 +6,17 @@
 //
 
 import Foundation
+import Resolver
 
-class TreeListInteractor {
-    let presenter = TreeListPresenter()
-    private let worker = TreeListWorker()
+protocol TreeListInteractorProtocol {
+    var presenter: TreeListPresenterProtocol { get set }
+    func fetchData()
+    func onTreeSelected(tree: Tree?)
+}
+
+class TreeListInteractor: TreeListInteractorProtocol {
+    @Injected var presenter: TreeListPresenterProtocol
+    @Injected private var worker: TreeListWorkerProtocol
     
     func fetchData() {
         let completionHandler: ([Tree]) -> Void = { [weak self] treeList in

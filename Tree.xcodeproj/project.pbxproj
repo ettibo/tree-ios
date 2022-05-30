@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		1E84EBEA22F057DFDFEF88AD /* Pods_Tree_TreeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E45F057BC451B9FF09A9A4 /* Pods_Tree_TreeUITests.framework */; };
+		2303F74F28455FD800B1C165 /* AppDelegate+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2303F74E28455FD800B1C165 /* AppDelegate+Injection.swift */; };
+		2303F7512845602600B1C165 /* Workers+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2303F7502845602600B1C165 /* Workers+Injection.swift */; };
+		2303F7532845631400B1C165 /* Interactors+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2303F7522845631400B1C165 /* Interactors+Injection.swift */; };
+		2303F7552845650200B1C165 /* Presenters+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2303F7542845650200B1C165 /* Presenters+Injection.swift */; };
+		2303F757284566AE00B1C165 /* Routers+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2303F756284566AE00B1C165 /* Routers+Injection.swift */; };
 		306E08C82CF64AFAC47B0DCD /* Pods_Tree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5232E4482800FB2EFB3250F0 /* Pods_Tree.framework */; };
 		412D2C4A82F52A7017368FB4 /* Pods_TreeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CACAE93E40178BBE591CC8C /* Pods_TreeTests.framework */; };
 		DFA021F9264AB05F003AB2E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA021F8264AB05F003AB2E9 /* AppDelegate.swift */; };
@@ -52,6 +57,11 @@
 
 /* Begin PBXFileReference section */
 		09B9B47EC51F9CBBE847037B /* Pods-Tree-TreeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tree-TreeUITests.release.xcconfig"; path = "Target Support Files/Pods-Tree-TreeUITests/Pods-Tree-TreeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		2303F74E28455FD800B1C165 /* AppDelegate+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Injection.swift"; sourceTree = "<group>"; };
+		2303F7502845602600B1C165 /* Workers+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workers+Injection.swift"; sourceTree = "<group>"; };
+		2303F7522845631400B1C165 /* Interactors+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Interactors+Injection.swift"; sourceTree = "<group>"; };
+		2303F7542845650200B1C165 /* Presenters+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Presenters+Injection.swift"; sourceTree = "<group>"; };
+		2303F756284566AE00B1C165 /* Routers+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routers+Injection.swift"; sourceTree = "<group>"; };
 		3CACAE93E40178BBE591CC8C /* Pods_TreeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4228B8ECA3ED7DB2A290830D /* Pods-Tree-TreeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tree-TreeUITests.debug.xcconfig"; path = "Target Support Files/Pods-Tree-TreeUITests/Pods-Tree-TreeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5232E4482800FB2EFB3250F0 /* Pods_Tree.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tree.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +140,18 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		2303F74D28455FBC00B1C165 /* Injection */ = {
+			isa = PBXGroup;
+			children = (
+				2303F74E28455FD800B1C165 /* AppDelegate+Injection.swift */,
+				2303F7502845602600B1C165 /* Workers+Injection.swift */,
+				2303F7522845631400B1C165 /* Interactors+Injection.swift */,
+				2303F7542845650200B1C165 /* Presenters+Injection.swift */,
+				2303F756284566AE00B1C165 /* Routers+Injection.swift */,
+			);
+			path = Injection;
+			sourceTree = "<group>";
+		};
 		8F64DDC182B95FF665A852B7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +187,7 @@
 		DFA021F7264AB05F003AB2E9 /* Tree */ = {
 			isa = PBXGroup;
 			children = (
+				2303F74D28455FBC00B1C165 /* Injection */,
 				DFF747E2264AB7D700276E3E /* Models */,
 				DFF747E7264ACE1A00276E3E /* TreeDetails */,
 				DFA02228264AB06E003AB2E9 /* TreeList */,
@@ -493,14 +516,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2303F7532845631400B1C165 /* Interactors+Injection.swift in Sources */,
 				DFA0222C264AB139003AB2E9 /* TreeListRouter.swift in Sources */,
 				DFC481E62653C513002D18E5 /* TreeDetailsModels.swift in Sources */,
 				DFC481E82653C58C002D18E5 /* TreeDetailsWorker.swift in Sources */,
 				DFA021FD264AB05F003AB2E9 /* TreeListViewController.swift in Sources */,
 				DFA02230264AB152003AB2E9 /* TreeListPresenter.swift in Sources */,
+				2303F7552845650200B1C165 /* Presenters+Injection.swift in Sources */,
 				DFF747E4264AB7E500276E3E /* Tree.swift in Sources */,
 				DFF747E9264ACF0600276E3E /* TreeDetailsViewController.swift in Sources */,
+				2303F757284566AE00B1C165 /* Routers+Injection.swift in Sources */,
 				DFF747F0264AD6DB00276E3E /* TreeDetailsViewHolder.swift in Sources */,
+				2303F74F28455FD800B1C165 /* AppDelegate+Injection.swift in Sources */,
+				2303F7512845602600B1C165 /* Workers+Injection.swift in Sources */,
 				DFF747E6264AC1EE00276E3E /* TreeListViewHolder.swift in Sources */,
 				DFA021F9264AB05F003AB2E9 /* AppDelegate.swift in Sources */,
 				DFF747EB264ACF6F00276E3E /* TreeDetailsInteractor.swift in Sources */,

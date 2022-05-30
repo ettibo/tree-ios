@@ -7,7 +7,12 @@
 
 import UIKit
 
-class TreeListRouter {
+protocol TreeListRouterProtocol {
+    var viewController: UIViewController? { get set }
+    func routeToTreeDetailsViewController(tree: Tree)
+}
+
+class TreeListRouter: TreeListRouterProtocol {
     weak var viewController: UIViewController?
     
     func routeToTreeDetailsViewController(tree: Tree) {

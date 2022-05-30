@@ -7,8 +7,16 @@
 
 import UIKit
 
-class TreeListPresenter {
-    weak var viewController: TreeListViewController?
+protocol TreeListPresenterProtocol {
+    var viewController:  TreeListViewControllerProtocol? { get set }
+    func presentTreeList(treeList: [Tree])
+    func presentLoader()
+    func dismissLoader()
+    func presentTreeDetailsViewController(tree: Tree)
+}
+
+class TreeListPresenter: TreeListPresenterProtocol {
+    var viewController: TreeListViewControllerProtocol?
     
     func presentTreeList(treeList: [Tree]) {
         let viewHolder = TreeListViewHolder(treeList: treeList)
