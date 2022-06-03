@@ -6,17 +6,18 @@
 //
 
 import Foundation
+import UIKit
 
 protocol TreeDetailsPresenterProtocol {
-    var viewController: TreeDetailsViewControllerProtocol? { get set }
+    var viewController: UIViewController? { get set }
     func presentItems(items: [String])
 }
 
 class TreeDetailsPresenter: TreeDetailsPresenterProtocol {
-    var viewController: TreeDetailsViewControllerProtocol?
+    weak var viewController: UIViewController?
     
     func presentItems(items: [String]) {
         let viewHolder = TreeDetailsViewHolder(items: items)
-        viewController?.displayItems(viewHolder: viewHolder)
+        (viewController as? TreeDetailsViewControllerProtocol)?.displayItems(viewHolder: viewHolder)
     }
 }
