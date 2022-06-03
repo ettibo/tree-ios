@@ -8,7 +8,7 @@
 import UIKit
 
 protocol TreeListPresenterProtocol {
-    var viewController:  TreeListViewControllerProtocol? { get set }
+    var viewController:  UIViewController? { get set }
     func presentTreeList(treeList: [Tree])
     func presentLoader()
     func dismissLoader()
@@ -16,22 +16,22 @@ protocol TreeListPresenterProtocol {
 }
 
 class TreeListPresenter: TreeListPresenterProtocol {
-    var viewController: TreeListViewControllerProtocol?
+    weak var viewController: UIViewController?
     
     func presentTreeList(treeList: [Tree]) {
         let viewHolder = TreeListViewHolder(treeList: treeList)
-        viewController?.displayTreeList(viewHolder: viewHolder)
+        (viewController as? TreeListViewControllerProtocol)?.displayTreeList(viewHolder: viewHolder)
     }
     
     func presentLoader() {
-        viewController?.displayLoader()
+        (viewController as? TreeListViewControllerProtocol)?.displayLoader()
     }
     
     func dismissLoader() {
-        viewController?.hideLoader()
+        (viewController as? TreeListViewControllerProtocol)?.hideLoader()
     }
     
     func presentTreeDetailsViewController(tree: Tree) {
-        viewController?.router.routeToTreeDetailsViewController(tree: tree)
+        (viewController as? TreeListViewControllerProtocol)?.router.routeToTreeDetailsViewController(tree: tree)
     }
 }
